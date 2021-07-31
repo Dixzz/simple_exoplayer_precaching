@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg2"
+    android:gravity="center"
+    android:orientation="horizontal"
+    tools:showIn="@layout/fragment_blank">
+
+    <ImageButton
+        android:id="@id/exo_rew"
+        style="@style/ExoStyledControls.Button.Center.RewWithAmount" />
+
+
+    <ImageView
+        android:id="@id/exo_play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/exo_icon_play"
+        android:tint="@color/white" />
+
+    <ImageView
+        android:id="@id/exo_pause"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/exo_icon_pause"
+        android:tint="@color/white" />
+
+
+    <ImageButton
+        android:id="@id/exo_ffwd"
+        style="@style/ExoStyledControls.Button.Center.FfwdWithAmount" />
+</LinearLayout>

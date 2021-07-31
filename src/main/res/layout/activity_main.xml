@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:scaleX="0"
+        android:scaleY="0"
+        app:lottie_colorFilter="@color/white"
+        app:lottie_fileName="loader.json"
+        app:lottie_repeatCount="-1"
+        app:lottie_repeatMode="restart" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:elevation="20dp"
+        android:fitsSystemWindows="true"
+        android:indeterminate="false"
+        android:visibility="invisible"
+        app:trackThickness="1dp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="match_parent"/>
+</FrameLayout>

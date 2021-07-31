@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.myapplication.VideoDataModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".BlankFragment">
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/gradient_bg"
+            app:default_artwork="@drawable/exo_ic_default_album_image"
+            app:animation_enabled="true"
+            app:auto_show="false"
+            app:controller_layout_id="@layout/custom_exoplayer_controller"
+            app:fastforward_increment="5000"
+            app:hide_on_touch="true"
+            app:keep_content_on_player_reset="false"
+            app:resize_mode="fill"
+            app:rewind_increment="5000"
+            app:show_timeout="2000"
+            app:surface_type="surface_view"
+            app:use_artwork="true" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:elevation="3dp"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieLikes"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toTopOf="@id/containerTitle"
+                app:layout_constraintEnd_toEndOf="@id/likeCounter"
+                app:layout_constraintStart_toStartOf="@+id/likeCounter"
+                app:lottie_autoPlay="false"
+                app:lottie_fileName="liked.json" />
+
+            <TextView
+                android:id="@+id/likeCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:alpha=".65"
+                android:fontFamily="@font/sans"
+                android:text="@{data.normalisedCount}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/containerTitle"
+                app:layout_constraintEnd_toEndOf="@id/containerTitle"
+                tools:text="@string/app_name" />
+
+            <LinearLayout
+                android:id="@+id/containerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/rootContent">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/profileImage"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:failureImage="@drawable/user"
+                    app:placeholderImage="@drawable/user"
+                    app:roundedCornerRadius="24dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@{data.user_info.username}"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/rootContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sans"
+                android:maxLines="1"
+                android:text="@{data.description}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
